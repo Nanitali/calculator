@@ -72,6 +72,11 @@ for (var i = 0; i < operator.length; i++) {
                 
                 // document.getElementById("output-value").value = value.substr(0, value.length-1);
                 // print("output-value", getFormattedNumber(value));
+                function backspace()
+{
+var txt = document.getElementById('txtScream');
+txt.value = txt.value.substring(0,txt.value.length - 1);
+}
             }
         } else {// the calculator is not working if the output is empty
             //declare both output and history value
@@ -110,6 +115,56 @@ for (var i = 0; i < operator.length; i++) {
 
     });
 }
+
+
+// refactor 
+// var result; 
+// var operator; 
+// var isPressEqualsKey = false; 
+
+// function connectionDigital(control)
+// {
+// var txt = document.getElementById('output');
+// if(isPressEqualsKey)
+// { 
+// txt.value = "";
+// isPressEqualsKey = false;
+// }
+
+// if(txt.value.indexOf('.') > -1 && control.value == '.')
+// return false;
+// txt.value += control.value; 
+// }
+
+// function backspace()
+// {
+// var txt = document.getElementById('backspace');
+// txt.value = txt.value.substring(0,txt.value.length - 1);
+// }
+
+// function clearAll()
+// {
+// document.getElementById('clear').value = "";
+// result = "";
+// operator = "";
+
+// function calculation(control)
+// {
+
+// operator = control.value; 
+// var txt = document.getElementById('output');
+// if(txt.value == "")return false; 
+
+// result = txt.value; 
+
+// txt.value = ""; 
+// }
+
+// function getResult()
+// {
+// var opValue;
+
+
 
 // get to number by using number class
 var number = document.getElementsByClassName("number");
