@@ -34,14 +34,10 @@ function print(what, num) {
 
 function getFormattedNumber(num) {
     // to be able show the "-" as a negative symbol
-     if (num === "-") {
-        retun;
-        }else{
     //     var n = Number(num);
     //     var value = n.toLocalString("en");
     //     return value;
-    return Number(num).toLocaleString("en");
-}
+    num === "-" ? return : return Number(num).toLocaleString("en");
 }
 // to mainipulate the output values,we need to convese the comma
 // separated value back to the original value
@@ -50,9 +46,9 @@ function reverseNumberFormat(num) {
     return Number(num.replace(/,/g, ''));
 }
 // get to operation by using operator class
-var operator = document.getElementsByClassName("operator");
+const operator = document.getElementsByClassName("operator");
 // let use for loop to access one by one
-for (var i = 0; i < operator.length; i++) {
+for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener('click', function () {
         // what action we need to peform when the user click on the operator
         // alert("the operator clicked:"+ this.id);
@@ -63,10 +59,10 @@ for (var i = 0; i < operator.length; i++) {
         }
         // secondly, check the backspace button
         else if (this.id === "backspace") {
-            var value = reverseNumberFormat("output-value").toString();
+            const value = reverseNumberFormat("output-value").toString();
             if (value) {// if output is a value
                 // use substr method to print out the rest value as a string
-                var value = document.getElementById("output-value").innerText;
+                const value = document.getElementById("output-value").innerText;
                 value = value.substr(0, value.length-1);
                 // print("output-value", getFormattedNumber(value));
                 
@@ -74,19 +70,19 @@ for (var i = 0; i < operator.length; i++) {
                 // print("output-value", getFormattedNumber(value));
                 function backspace()
 {
-var txt = document.getElementById('txtScream');
+const txt = document.getElementById('txtScream');
 txt.value = txt.value.substring(0,txt.value.length - 1);
 }
             }
         } else {// the calculator is not working if the output is empty
             //declare both output and history value
-            var output = reverseNumberFormat(get("output-value"));
-            var history = get("history-value");
+            const output = reverseNumberFormat(get("output-value"));
+            const history = get("history-value");
             // to make the output is empty after output add into the history
             // if (output === "" && history !== "") {
             //use isNan function =Nan =is not a number 
 
-            if (this.id === "=") {
+            this.id === "=" ?
                 // if (isNaN(history[history.length - 1])) {
                 //     //remove the last charactor use substract function
                 //     history = history.substr(0, history.length - 1);
@@ -107,10 +103,9 @@ txt.value = txt.value.substring(0,txt.value.length - 1);
                 //         var result = eval(history);
                 //         print("output-value",getOutput(result));
                 //         print("history-value","");
-            } else {// for other operators, the operators send to the history, and output set to empty
-                print("history-value", output + this.id);
-                print("output-value", "");
-            }
+            :// for other operators, the operators send to the history, and output set to empty
+            print("history-value", output + this.id);
+            print("output-value", "");
         }
 
     });
@@ -167,7 +162,7 @@ txt.value = txt.value.substring(0,txt.value.length - 1);
 
 
 // get to number by using number class
-var number = document.getElementsByClassName("number");
+const number = document.getElementsByClassName("number");
 // let use for loop to access one by one
 for (let i = 0; i < number.length; i++) {
     number[i].addEventListener('click', function () {
@@ -176,7 +171,7 @@ for (let i = 0; i < number.length; i++) {
         // if the output is number and no operate
         //the number that user clicks just gets concatenated 
         // use the revserse function to remove the comma before processed
-        var output = reverseNumberFormat(get("output-value"));
+        const output = reverseNumberFormat(get("output-value"));
         //if output is number
         if (output !==NaN) {
         //     output = output + this.id;
@@ -189,12 +184,12 @@ for (let i = 0; i < number.length; i++) {
 document.addEventListener('keydown', function (event) {
     // numeric
     if (event.keyCode > 47 && event.keyCode < 58) {
-        var output = reverseNumberFormat(get("output-value"));
+        const output = reverseNumberFormat(get("output-value"));
         print("output-value", getFormattedNumber(output.toString() + (event.keyCode - 48)));
     }
     // numpad
     if (event.keyCode > 95 && event.keyCode < 106) {
-        var output = reverseNumberFormat(get("output-value"));
+        const output = reverseNumberFormat(get("output-value"));
         print("output-value", getFormattedNumber(output.toString() + (event.keyCode - 96)));
     }
 
